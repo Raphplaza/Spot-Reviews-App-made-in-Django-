@@ -1,0 +1,17 @@
+{% load static %}
+
+{% if surf_spot_list %}
+    <ul>
+    {% for spotname in surf_spot_list %}
+        <li><a href="/polls/{{ spotname.id }}/">{{ spotname.question_text }} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No surfspots reviews available </p>
+{% endif %}
+
+<form action="/polls/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add">
+</form>

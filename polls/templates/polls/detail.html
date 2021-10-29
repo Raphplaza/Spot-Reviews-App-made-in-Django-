@@ -1,0 +1,17 @@
+<p>{{spotname}} - reviews</p>
+
+{% if spot_review_list %}
+    <ul>
+    {% for spotreview in spot_review_list %}
+        <li><a>{{ spotreview.choice_text }} </a></li>
+    {% endfor %}    
+    </ul>
+{% else %}
+    <p> No reviews available </p>
+{% endif %} 
+
+<form action="{% url 'polls:detail' spotname.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add">
+</form>
