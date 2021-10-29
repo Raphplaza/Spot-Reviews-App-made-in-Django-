@@ -1,13 +1,13 @@
 {% load static %}
 
-{% if surf_spot_list %}
+{% if surfspot_list %}
     <ul>
-    {% for spotname in surf_spot_list %}
-        <li><a href="/polls/{{ spotname.id }}/">{{ spotname.question_text }} </a></li>
+    {% for surfspot in surfspot_list %}
+        <li><a href="/polls/{{ surfspot.id }}/">{{ surfspot.name }} </a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No surfspots reviews available </p>
+    <p>No surfspots available </p>
 {% endif %}
 
 <form action="/polls/" method="post">

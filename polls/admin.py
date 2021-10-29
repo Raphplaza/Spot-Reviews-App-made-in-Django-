@@ -2,10 +2,9 @@ from django.contrib import admin
 from django.db import models
 
 # Register your models here.
-from .models import SpotReview, SpotName
+from .models import SpotReview, SurfSpot
 
 
-#admin.site.register(Question)
 
 class ChoiceInLine(admin.TabularInline):
     model = SpotReview
@@ -13,18 +12,18 @@ class ChoiceInLine(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['question_text']}),
+        (None,               {'fields': ['name']}),
         ('Date information', {'fields': ['pub_date'],'classes':['collapse']}),
         
     ]
 
     inlines = [ChoiceInLine]
 
-    list_display = ('question_text', 'pub_date', 'was_published_recently')
+    list_display = ('name', 'pub_date', 'was_published_recently')
 
     list_filter = ['pub_date']
 
-    search_fields = ['question_text']
+    search_fields = ['name']
 
-admin.site.register(SpotName, QuestionAdmin)
+admin.site.register(SurfSpot, QuestionAdmin)
 

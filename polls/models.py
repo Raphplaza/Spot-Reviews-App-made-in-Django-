@@ -9,12 +9,12 @@ from django.utils import timezone
 
 
 
-class SpotName(models.Model):
-    question_text = models.CharField(max_length=200)
+class SurfSpot(models.Model):
+    name = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return (self.question_text)
+        return (self.name)
 
 #decorator for display purposes
     @admin.display(
@@ -28,9 +28,9 @@ class SpotName(models.Model):
         return now >= self.pub_date >= now - timedelta(days=1)
 
 class SpotReview(models.Model):
-    question = models.ForeignKey(SpotName, on_delete = models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    surfspot = models.ForeignKey(SurfSpot, on_delete = models.CASCADE)
+    review_text = models.CharField(max_length=200)
+    author = models.CharField(max_length=30, default="unknown author")
 
     def __str__(self):
-        return self.choice_text
+        return self.review_text
