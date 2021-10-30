@@ -1,0 +1,33 @@
+Welcome to my Django-Project.
+Service which anables users to add surfspots and write reviews about them as well as an admin panel.
+
+The project includes also diverse tests
+
+To start the app:
+
+1. in terminal run: : 
+    $pipenv install django
+to create a virtual environment and install django
+
+2. in terminal run: 
+    $pipenv shell
+
+to start the Virtualenv
+
+If you are uisng VS-Code:
+
+3. set up interpreter:
+    1. open comand palette  (cmd + shift + P)
+    2. type select interpreter
+    3. enter interpreter path
+    4. in terminal run 'pipenv --env' copy Virtualenv location from terminal appending    /bin/python  in the end
+
+4. run
+    $python manage.py runserver
+
+
+
+
+to run all the tests:
+
+$python manage.py test spots

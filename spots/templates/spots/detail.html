@@ -1,0 +1,18 @@
+<p>{{spotname}} - reviews</p>
+
+{% if surf_spot_review_list %}
+    <ul>
+    {% for spotreview in surf_spot_review_list %}
+        <li><a> "{{ spotreview.review_text }}"  added by {{ spotreview.author }}</a></li>
+    {% endfor %}    
+    </ul>
+{% else %}
+    <p> No reviews available </p>
+{% endif %} 
+
+
+<form action="/spots/{{surfspot_id}}/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add">
+</form>

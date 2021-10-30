@@ -1,0 +1,17 @@
+{% load static %}
+
+{% if surfspot_list %}
+    <ul>
+    {% for surfspot in surfspot_list %}
+        <li><a href="/spots/{{ surfspot.id }}/">{{ surfspot.name }} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No surfspots available </p>
+{% endif %}
+
+<form action="/spots/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add">
+</form>
